@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../../../../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../../../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../../../../files/../mofo/conf.html">../mofo/conf.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/engine/class.html">../mofo/engine/class.lua</a>
+	</li>
+
+	<li><strong>../mofo/engine/net.lua</strong></li>
+	
+	<li>
+		<a href="../../../../files/../mofo/engine/objects/camera.html">../mofo/engine/objects/camera.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/engine/objects/drawable.html">../mofo/engine/objects/drawable.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/game/code.html">../mofo/game/code.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/game/main.html">../mofo/game/main.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/game/player.html">../mofo/game/player.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/main.html">../mofo/main.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../files/../mofo/test.html">../mofo/test.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>../mofo/engine/net.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.disconnect">net.client.disconnect</a>&nbsp;()</td>
+	<td class="summary">Disconnect from the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.handle">net.client.handle</a>&nbsp;(tbl)</td>
+	<td class="summary">Handle a packet received from the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.init">net.client.init</a>&nbsp;(ip, port)</td>
+	<td class="summary">Start as a client and connect to a server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.receive">net.client.receive</a>&nbsp;()</td>
+	<td class="summary">Receive a table from the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.send">net.client.send</a>&nbsp;(tbl)</td>
+	<td class="summary">Send a table to the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.client.update">net.client.update</a>&nbsp;()</td>
+	<td class="summary">Handle anything server network related.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.common.deserialize">net.common.deserialize</a>&nbsp;(str)</td>
+	<td class="summary">Deserializes a table serialized with net.common.serialize </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.common.serialize">net.common.serialize</a>&nbsp;(tbl)</td>
+	<td class="summary">Serializes a table.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.getPlayer">net.server.getPlayer</a>&nbsp;(ip, port)</td>
+	<td class="summary">Find a player with a given ip and port </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.init">net.server.init</a>&nbsp;(ip, port)</td>
+	<td class="summary">Start the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.kick">net.server.kick</a>&nbsp;(player, reason)</td>
+	<td class="summary">Kick a player from the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.message">net.server.message</a>&nbsp;(tbl, ip, port)</td>
+	<td class="summary">Handle an incoming message.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.ping">net.server.ping</a>&nbsp;(player)</td>
+	<td class="summary">Reset ping deadline </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.receive">net.server.receive</a>&nbsp;()</td>
+	<td class="summary">Receive a table from a client </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.registerPlayer">net.server.registerPlayer</a>&nbsp;(ip, port, options)</td>
+	<td class="summary">Register a newly connected player </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.send">net.server.send</a>&nbsp;(player, tbl)</td>
+	<td class="summary">Send a table to a player </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.stop">net.server.stop</a>&nbsp;()</td>
+	<td class="summary">Stop the server </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#net.server.update">net.server.update</a>&nbsp;(ip, port)</td>
+	<td class="summary">Handle anything server network related.</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="net.client.disconnect"></a><strong>net.client.disconnect</strong>&nbsp;()</dt>
+<dd>
+Disconnect from the server
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.client.handle"></a><strong>net.client.handle</strong>&nbsp;(tbl)</dt>
+<dd>
+Handle a packet received from the server
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  tbl: Table to handle
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.client.init"></a><strong>net.client.init</strong>&nbsp;(ip, port)</dt>
+<dd>
+Start as a client and connect to a server
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ip: The ip the client should connect to
+	</li>
+	
+	<li>
+	  port: The port the client should connect to
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.client.receive"></a><strong>net.client.receive</strong>&nbsp;()</dt>
+<dd>
+Receive a table from the server
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+Table received from server
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.client.send"></a><strong>net.client.send</strong>&nbsp;(tbl)</dt>
+<dd>
+Send a table to the server
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  tbl: Table to send
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.client.update"></a><strong>net.client.update</strong>&nbsp;()</dt>
+<dd>
+Handle anything server network related. Should be called in the update loop.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.common.deserialize"></a><strong>net.common.deserialize</strong>&nbsp;(str)</dt>
+<dd>
+Deserializes a table serialized with net.common.serialize
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  str: String to deserialize
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+Deserialized table
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.common.serialize"></a><strong>net.common.serialize</strong>&nbsp;(tbl)</dt>
+<dd>
+Serializes a table. Note it only goes 1 level deep.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  tbl: Table to serialize
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+String containing serialized table
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.getPlayer"></a><strong>net.server.getPlayer</strong>&nbsp;(ip, port)</dt>
+<dd>
+Find a player with a given ip and port
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ip: Ip of the player
+	</li>
+	
+	<li>
+	  port: Port of the player
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+Player object
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.init"></a><strong>net.server.init</strong>&nbsp;(ip, port)</dt>
+<dd>
+Start the server
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ip: The ip the server should listen for (use '*')
+	</li>
+	
+	<li>
+	  port: The port the server should listen for
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.kick"></a><strong>net.server.kick</strong>&nbsp;(player, reason)</dt>
+<dd>
+Kick a player from the server
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  player: Player to kick
+	</li>
+	
+	<li>
+	  reason: Reason why to kick the player
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.message"></a><strong>net.server.message</strong>&nbsp;(tbl, ip, port)</dt>
+<dd>
+Handle an incoming message.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  tbl: Deserialized message
+	</li>
+	
+	<li>
+	  ip: Ip address of the sender
+	</li>
+	
+	<li>
+	  port: Port of the sender
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.ping"></a><strong>net.server.ping</strong>&nbsp;(player)</dt>
+<dd>
+Reset ping deadline
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  player: Player to reset ping deadline
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.receive"></a><strong>net.server.receive</strong>&nbsp;()</dt>
+<dd>
+Receive a table from a client
+
+
+
+
+
+
+
+<h3>Return values:</h3>
+<ol>
+	
+	<li>Nil when nothing to receive
+	
+	<li>Table, ip, port when data received
+	
+</ol>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.registerPlayer"></a><strong>net.server.registerPlayer</strong>&nbsp;(ip, port, options)</dt>
+<dd>
+Register a newly connected player
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ip: Ip of the connected player
+	</li>
+	
+	<li>
+	  port: Port of the connected player
+	</li>
+	
+	<li>
+	  options: Table send by the player
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The player object
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.send"></a><strong>net.server.send</strong>&nbsp;(player, tbl)</dt>
+<dd>
+Send a table to a player
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  player: Player to send it to
+	</li>
+	
+	<li>
+	  tbl: Table to send
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.stop"></a><strong>net.server.stop</strong>&nbsp;()</dt>
+<dd>
+Stop the server
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="net.server.update"></a><strong>net.server.update</strong>&nbsp;(ip, port)</dt>
+<dd>
+Handle anything server network related. Does not return
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ip: 
+	</li>
+	
+	<li>
+	  port: 
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>
